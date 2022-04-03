@@ -307,7 +307,8 @@ body {
     font-size:16px;
     font-weight:bold;
 }
-#footer a {
+#footer ul li a {
+    text-align:right;
     color:rgb(255, 50, 50) ;
 }
 #footer ul {
@@ -401,13 +402,20 @@ position: relative;
         padding:0px;
         margin:0px;
         background:linear-gradient(0deg,rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.6)),url("./asstes/mobilebg.gif") center center;
-        /* background-size:contain; */
-        background-size: contain;
+        background-size:contain;
         width:100vw;
-        height:100vh; /*Change to make scrollable*/
-        overflow:visible;
+        height:100vh;
+        /*  Change to make scrollable */
+        overflow-x: hidden;
+        overflow-y: hidden;
         font-family: 'Josefin Sans', sans-serif;
+        position: relative;
     }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: hidden; 
+      }
 
 }
 
