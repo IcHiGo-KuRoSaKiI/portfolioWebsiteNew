@@ -397,6 +397,17 @@ position: relative;
         width: 100%;
         height:auto;
     }
+    body {
+        padding:0px;
+        margin:0px;
+        background:linear-gradient(0deg,rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.6)),url("./asstes/mobilebg.gif") center center;
+        /* background-size:contain; */
+        background-size: contain;
+        width:100vw;
+        height:100vh; /*Change to make scrollable*/
+        overflow:visible;
+        font-family: 'Josefin Sans', sans-serif;
+    }
 
 }
 
