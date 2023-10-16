@@ -1,5 +1,10 @@
-let pages;
+var md = window.markdownit();
 
+
+
+let pages;
+let about;
+let projects;
 // Update the URL to your JSON file
 const jsonUrl = 'pages.json';
 
@@ -9,8 +14,9 @@ fetch(jsonUrl)
     .then(data => {
         // Now 'data' contains the array of pages
         // Update your existing code to use 'data' instead of 'pages'
-        pages = data;
-
+        pages = data.work.items;
+        about = data.basics;
+        projects = data.projects.items;
         // ... (rest of your code)
     })
     .catch(error => console.error('Error fetching JSON:', error));
@@ -22,6 +28,9 @@ function showabout() {
     $("#about_container").addClass("animated slideInLeft");
     setTimeout(function () {
         $("#about_container").removeClass("animated slideInLeft");
+        const aboutContainer = $("#about_content");
+        aboutContainer.empty();
+        aboutContainer.append(generateAboutSection(about));
     }, 800);
 }
 function closeabout() {
@@ -39,8 +48,12 @@ function showwork() {
 
     setTimeout(function () {
         $("#work_container").removeClass("animated slideInRight");
+        // Determine the first page dynamically
+        const firstPageId = pages.length > 0 ? pages[0].id : null;
+
         // Initial page load
-        changePage('home');
+        changePage(firstPageId);
+
     }, 800);
 }
 
@@ -74,20 +87,6 @@ function closecontact() {
     }, 800);
 }
 
-// function showPage2(){
-//     $("#work_container1").css("display","inherit");
-//     $("#work_container1").addClass("animated slideInRight");
-//     setTimeout(function(){
-//         $("#work_container1").removeClass("animated slideInRight");
-//     },800);
-// }
-// function closePage2(){
-//     $("#work_container1").addClass("animated slideOutRight");
-//     setTimeout(function(){
-//         $("#work_container1").removeClass("animated slideOutRight");
-//         $("#work_container1").css("display","none");
-//     },800);
-// }
 
 $(document).ready(function () {
     //$(".pages").hide();
@@ -119,7 +118,7 @@ setInterval(function () {
     origin += 1.9;
 }, 100)
 
-
+// For the Work Section
 // Declare changePage globally
 function changePage(pageId) {
     const page = pages.find(p => p.id === pageId);
@@ -128,7 +127,7 @@ function changePage(pageId) {
         const contentHtml = `
             <section id="${page.id}" class="pages">
                 <h2>${page.title}</h2>
-                <p>${page.content}</p>
+                <p>${md.render(page.content)}</p>
                 <div id="used">
                     ${page.technologies.map(tech => `<div><i class="fas fa-circle"></i>&nbsp;${tech}</div>`).join('')}
                 </div>
@@ -147,15 +146,6 @@ function changePage(pageId) {
     }
 }
 
-// // Function to generate navigation buttons dynamically with styling
-// function generateNavButtons(currentPageId) {
-//     return pages.map(page => {
-//         const activeClass = page.id === currentPageId ? 'active' : '';
-//         return `<button class="${activeClass} btn_one" onclick='changePage("${page.id}")'>${page.title}</button>`;
-//     }).join('');
-// }
-
-
 // Function to generate navigation buttons dynamically with styling
 function generateNavButtons(currentPageId) {
     const buttons = pages.reduce((acc, page) => {
@@ -168,3 +158,40 @@ function generateNavButtons(currentPageId) {
 
     return buttons.join('');
 }
+
+
+// Function to render about section
+function generateAboutSection(basics) {
+    return `
+        <section id="${basics.id}" class="pages">
+            <p>${md.render(basics.headline)}</p>
+            <p>${md.render(basics.summary)}</p>
+            <div id="used">
+                ${basics.profiles.map(profile => `
+                    <div onclick="window.open('${profile.url}', '_blank'); return false;">
+                        <i class="fab fa-${profile.network.toLowerCase()}"></i>&nbsp;${profile.username}
+                    </div>`).join('')}
+            </div>
+        </section>
+    `;
+}
+
+
+// // Function to generate Projects section dynamically
+// function generateProjectsSection(projects) {
+//     return `
+//         <section id="${projects.id}" class="pages">
+//             <h2>${projects.name}</h2>
+//             ${projects.items.map(project => `
+//                 <div class="project">
+//                     <h3>${project.name}</h3>
+//                     <p>${md.render(project.summary)}</p>
+//                     <p><strong>Start Date:</strong> ${project.date.start}</p>
+//                     <p><strong>End Date:</strong> ${project.date.end || 'Present'}</p>
+//                     <p><strong>Description:</strong> ${md.render(project.description)}</p>
+//                     ${project.keywords.length > 0 ? `<p><strong>Keywords:</strong> ${project.keywords.join(', ')}</p>` : ''}
+//                 </div>
+//             `).join('')}
+//         </section>
+//     `;
+// }
