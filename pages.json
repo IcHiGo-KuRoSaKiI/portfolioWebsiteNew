@@ -1,0 +1,67 @@
+[
+    {
+        "id": "home",
+        "title": "Work Title",
+        "content": "this would be my work.",
+        "technologies": [
+            "HTML5",
+            "CSS3",
+            "Javascript",
+            "Python"
+        ],
+        "buttons": [
+            {
+                "text": "Home",
+                "class": "btn_one"
+            }
+        ]
+    },
+    {
+        "id": "lala",
+        "title": "lala Title",
+        "content": "this would be my something.",
+        "technologies": [
+            "HTML5",
+            "CSS3",
+            "Javascript"
+        ],
+        "buttons": [
+            {
+                "text": "lala",
+                "class": "btn_one"
+            }
+        ]
+    },
+    {
+        "id": "go",
+        "title": "go Title",
+        "content": "this would be something else.",
+        "technologies": [
+            "HTML5",
+            "CSS3",
+            "Javascript"
+        ],
+        "buttons": [
+            {
+                "text": "Go",
+                "class": "btn_one"
+            }
+        ]
+    },
+    {
+        "id": "test",
+        "title": "test 2",
+        "content": "testiclass",
+        "technologies": [
+            "HTML5",
+            "CSS3",
+            "Javascript"
+        ],
+        "buttons": [
+            {
+                "text": "test",
+                "class": "btn_one"
+            }
+        ]
+    }
+]
