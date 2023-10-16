@@ -1,28 +1,8 @@
 {
     "basics": {
-        "name": "Vedansh Kumar",
-        "email": "vedansh21.2000@gmail.com",
-        "phone": "06280431467",
-        "photo": {
-            "url": "https://cdn.rxresu.me/uploads/564783/645765/1696525112681.jpg",
-            "filters": {
-                "size": 134,
-                "shape": "circle",
-                "border": true,
-                "grayscale": false
-            },
-            "visible": true
-        },
         "summary": "🚀 Step into the realm of innovation, where I'm your vibrant developer armed with a robust skill set that spans Python, Unity (C#), IoT, Raspberry Pi, Arduino Uno, and the magical world of electronics. Picture this: a trail of successful AI projects showcasing classifiers, image detection marvels, and fraud detection wizardry. 🌐\n\n But wait, there's more in my toolbox! I wield seamless API integration like a wizard casting spells, perform automation feats with the finesse of a magician using Beautiful Soup and Selenium, and manage databases (think MongoDB, PostgreSQL, Kafka) like a symphony conductor leading a masterpiece.\n\n Now, let's talk about the future where chatbots become conversational maestros. I'm your guide in this journey, well-versed in RASA and NLP, ready to bring your interactions to life. And guess what? I'm not just grounded; I'm floating in the clouds too! AWS, GCP, IBM I navigate through the cloud like a digital explorer. 🤖☁️\n\n Hold on, did I forget to mention my crown? Yep, I'm a game development hackathon champion, where creativity and technical brilliance come together for a spectacular show. 🏆\n\n Feeling the spark yet? It's time to transform your ideas into reality. Let's collaborate, co-create, and conjure up something extraordinary! 🚀💡",
         "website": "",
         "headline": "### The Quieter you become , the more you'll be able to hear.",
-        "location": {
-            "city": "Pathankot",
-            "region": "Punjab",
-            "address": "Home No 120 Block 11 Shahpuri gate, Sujanpur, near Grace beauty parlour, Mahajan hall",
-            "country": "India",
-            "postalCode": "145023"
-        },
         "profiles": [
             {
                 "id": "81baba0d-d0eb-44e9-99b0-64ceff7c1451",
@@ -30,8 +10,7 @@
                 "network": "LinkedIn",
                 "username": "Vedansh Kumar"
             }
-        ],
-        "birthdate": "2001-03-21"
+        ]
     },
     "work": {
         "id": "work",
